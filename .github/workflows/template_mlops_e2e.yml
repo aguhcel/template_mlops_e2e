@@ -25,7 +25,7 @@ jobs:
         pip install uv
         uv venv -p ${{ matrix.python-version }} .venv
         source .venv/bin/activate
-        uv sync --active
+        uv sync --frozen
     
     - name: Test with pytest
       run: |
