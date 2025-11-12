@@ -1,0 +1,10 @@
+*__pycache__
+*/__pycache__
+*/pytest_cache
+
+# Virtual env
+venv
+.venv
+
+# coverage
+.coverage
