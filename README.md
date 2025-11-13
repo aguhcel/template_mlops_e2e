@@ -68,3 +68,6 @@ Template_MLOps_E2E/
 * Add: dockerfile
 * Add: more commads for makefile
     * run uvicorn
+
+* Add: More steps for CI/CD
+    * Fix: Issues in CI/CD
