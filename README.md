@@ -13,7 +13,7 @@ The following repository, is for create a template for ML/Gen AI proyects E2E
 
 ### Test project
 ```
- make install
+ make test
 ```
 
 ### Run API
