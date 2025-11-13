@@ -16,6 +16,11 @@ The following repository, is for create a template for ML/Gen AI proyects E2E
  make install
 ```
 
+### Run API
+```
+uvicorn app.api.router.v0.main:app --reload --port <0-65536>
+```
+
 ### Directory structure
 ```
 Template_MLOps_E2E/
