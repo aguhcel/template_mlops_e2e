@@ -66,7 +66,7 @@ Template_MLOps_E2E/
 ```
 
 ## TODO
-* Fix: test/coverage command for all repository
+* Fix: test/coverage command for all repository.
 
 * Add: Subdirectories for pattern VCM (Model, View, Controller)
 
