@@ -9,6 +9,7 @@ app = FastAPI(
 
 api_router = APIRouter()
 
+
 @api_router.get("/", status_code=200)
 def root() -> dict:
     """
@@ -16,6 +17,6 @@ def root() -> dict:
     """
     return {"message": "Hello World!"}
 
+
 app.include_router(api_router)
 app.include_router(health_check_router)
-
