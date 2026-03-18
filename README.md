@@ -1,12 +1,34 @@
 # Template_MLOps_E2E
 
-The following repository, is for create a template for ML/Gen AI proyects E2E
+This repository is for creating a template for ML/Gen AI projects end-to-end.
 
-##  Requirements 
- - Python 3.X
+## Requirements
+- Python 3.x
 
-## How to init the project
-### Install depedencies
+## How to create virtual enviroment with uv
+### Install uv
+```
+ pip install --upgrade pip
+ pip install uv
+```
+
+### Install specific python version
+```
+ uv python install 3.x
+```
+
+### Create a virtual enviroment with uv
+```
+ uv venv -p 3.x <ENV_NAME>
+```
+
+### Activate virtual enviroment
+```
+ source <ENV_NAME>/bin/activate
+```
+
+## How to initialize the project
+### Install dependencies
 ```
  make install
 ```
@@ -20,6 +42,10 @@ The following repository, is for create a template for ML/Gen AI proyects E2E
 ```
 uvicorn app.api.router.v0.main:app --reload --port <0-65536>
 ```
+ **OR**
+```
+make run-app
+```
 
 ### Directory structure
 ```
@@ -32,7 +58,7 @@ Template_MLOps_E2E/
 ├── uv.lock                      # Lock file containing the source of the dependencies used in this template
 │
 ├── app                          # Directory to expose the app to other services
-│   └── api                      # Cointains the app
+│   └── api                      # Contains the app
 │      └── router                # Routers to expose ML/GEN AI systems
 │          ├── healthcheck       # Healthcheck router
 │          │   └── model         # Response model for healthcheck
@@ -41,7 +67,7 @@ Template_MLOps_E2E/
 ├── configs                      # Config files (models and training hyperparameters)
 │   └── model1_config.yaml              
 │
-├── data                         # Directory from save the data
+├── data                         # Directory to save the data
 │   ├── bronce                   # Original from source
 │   ├── silver                   # Filter/transformed data.
 │   └── gold                     # The final, canonical data sets for modeling.
@@ -57,7 +83,7 @@ Template_MLOps_E2E/
 ├── reports                      # Generated analysis as HTML, PDF, LaTeX, etc.
 │   └── figures                  # Generated graphics and figures to be used in reporting.
 │
-├── requirements.txt             # The requirements file for reproducing the analysis environment.
+├── pyproject.toml               # The requirements file for reproducing the analysis environment.
 ├── src                          # Source code for use in this project.
 │   └── __init__.py              # Makes src a Python module.
 │
@@ -66,13 +92,11 @@ Template_MLOps_E2E/
 ```
 
 ## TODO
-* Fix: test/coverage command for all repository.
-
-* Add: Subdirectories for pattern VCM (Model, View, Controller)
+* Add: Subdirectories for pattern MVC (Model, View, Controller)
 
 * Add: dockerfile
-* Add: more commads for makefile
-    * run uvicorn
+  
+* Add: more commands for makefile
 
 * Add: More steps for CI/CD
     * Fix: Issues in CI/CD

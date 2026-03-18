@@ -6,7 +6,7 @@ PY ?= $(shell if command -v python3 >/dev/null 2>&1; then echo python3; elif com
 endif
 
 VENV_DIR ?= .venv
-VENV_PY ?= 3.13
+VENV_PY ?= 3.11
 
 ifeq ($(PY),)
 $(error Not found python in PATH. Pass PY=python or run from a shell with python)
@@ -32,4 +32,21 @@ endif
 
 .PHONY: test
 test:
-	@coverage run -m pytest 
+	pytest --cov=src --cov-report=term-missing --cov-report=xml --junitxml=xunit-result.xml
+
+.PHONY: run-app
+run-app:  ## Run the FastAPI application.
+	uvicorn app.api.router.v0.main:app --reload --port 8080
+
+.PHONY: run-ruff
+run-ruff: run-ruff-lint run-ruff-format  ## Run ruff to delete unused imports.
+
+.PHONY: run-ruff-lint
+run-ruff-lint:  ## Run ruff lint to delete unused imports.
+	@echo "Running ruff lint to delete unused imports..."
+	ruff check --fix .
+
+.PHONY: run-ruff-format
+run-ruff-format:  ## Run ruff format to delete unused imports.
+	@echo "Running ruff format to delete unused imports..."
+	ruff format .
