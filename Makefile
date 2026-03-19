@@ -32,7 +32,7 @@ endif
 
 .PHONY: test
 test:
-	pytest --cov=src --cov-report=term-missing --cov-report=xml --junitxml=xunit-result.xml
+	@pytest --cov=src --cov=app --cov-report=term-missing test app src
 
 .PHONY: run-app
 run-app:  ## Run the FastAPI application.
