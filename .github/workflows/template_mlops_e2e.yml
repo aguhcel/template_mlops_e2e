@@ -30,4 +30,4 @@ jobs:
     - name: Test with pytest
       run: |
         source .venv/bin/activate
-        pytest --cov=src --cov-fail-under=80
+        pytest --cov=src --cov=app --cov-fail-under=80 test app src  
