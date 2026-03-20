@@ -38,6 +38,13 @@ This repository is for creating a template for ML/Gen AI projects end-to-end.
  make test
 ```
 
+### Run pre-commit checks
+```
+ make run-pre-commit
+```
+
+This repository includes a pre-commit hook that validates stages after try to make a push.
+
 ### Run API
 ```
 uvicorn app.api.router.v0.main:app --reload --port <0-65536>

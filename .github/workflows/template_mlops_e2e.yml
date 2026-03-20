@@ -1,8 +1,18 @@
 name: template_mlops_e2e
 run-name: ${{ github.actor }} 
-on: [push]
+on: [push, pull_request]
 jobs:
+  notebook-clean:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v5
+    - name: Validate notebooks are clean
+      run: |
+        python scripts/ci/check_notebooks_clean.py
+
   build:
+
+    needs: notebook-clean
 
     runs-on: ubuntu-latest
 

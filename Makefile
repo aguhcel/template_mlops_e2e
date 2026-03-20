@@ -50,3 +50,8 @@ run-ruff-lint:  ## Run ruff lint to delete unused imports.
 run-ruff-format:  ## Run ruff format to delete unused imports.
 	@echo "Running ruff format to delete unused imports..."
 	ruff format .
+
+.PHONY: run-pre-commit
+run-pre-commit:  ## Run pre-commit checks on all files.
+	@echo "Running pre-commit checks..."
+	pre-commit run --all-files
