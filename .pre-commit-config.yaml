@@ -1,0 +1,35 @@
+default_install_hook_types: [pre-commit, pre-push]
+
+repos:
+  - repo: local
+    hooks:
+      - id: notebook-clean
+        name: Validate notebooks are clean
+        entry: uv run python scripts/ci/check_notebooks_clean.py
+        language: system
+        pass_filenames: false
+        files: ".*\\.ipynb$"
+        stages: [pre-commit, pre-push]
+
+      - id: ruff-lint
+        name: Run ruff to check for linting issues
+        entry: uv run ruff check .
+        language: system
+        pass_filenames: false
+        files: ".*\\.py$"
+        stages: [pre-commit]
+
+      - id: ruff-format
+        name: Run ruff format to delete unused imports
+        entry: uv run ruff format .
+        language: system
+        pass_filenames: false
+        files: ".*\\.py$"
+        stages: [pre-commit]
+
+      - id: test
+        name: Run tests with pytest
+        entry: uv run pytest --cov=src --cov=app --cov-report=term-missing test app src
+        language: system
+        pass_filenames: false
+        stages: [pre-push]
