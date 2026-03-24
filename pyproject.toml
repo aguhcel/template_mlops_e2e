@@ -3,10 +3,11 @@ name = "template_mlops_e2e"
 version = "0.1.0"
 description = "Test UV, Pytest and Github Actions"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.11"
 dependencies = [
     "fastapi>=0.121.1",
     "httpx>=0.28.1",
+    "pandas>=3.0.1",
     "pre-commit>=4.5.1",
     "pytest>=9.0.0",
     "pytest-cov>=7.0.0",
