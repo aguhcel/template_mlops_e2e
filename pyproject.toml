@@ -9,6 +9,7 @@ dependencies = [
     "fastapi>=0.121.1",
     "httpx>=0.28.1",
     "pandas>=3.0.1",
+    "pandera[pandas]>=0.30.1",
     "pre-commit>=4.5.1",
     "pytest>=9.0.0",
     "pytest-cov>=7.0.0",
