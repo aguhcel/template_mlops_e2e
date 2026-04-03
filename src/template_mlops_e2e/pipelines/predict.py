@@ -5,7 +5,7 @@ import pandas as pd
 from joblib import load
 from yaml import safe_load
 
-from app.api.router.predictions.models.prediction_model import UserData
+from src.template_mlops_e2e.api.views.predictions import UserData
 
 class Predictor:
     config_path: str | Path

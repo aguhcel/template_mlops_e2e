@@ -64,18 +64,16 @@ Template_MLOps_E2E/
 ├── pyproject.toml               # Toml file with dependencies in this template
 ├── uv.lock                      # Lock file containing the source of the dependencies used in this template
 │
-├── app                          # Directory to expose the app to other services
+├── app                          # FastAPI bootstrap (includes routers)
 │   └── api                      # Contains the app
-│      └── router                # Routers to expose ML/GEN AI systems
-│          ├── healthcheck       # Healthcheck router
-│          │   └── model         # Response model for healthcheck
+│      └── router                # App entrypoints
 │          └── v0                # Version of the app
 │
 ├── configs                      # Config files (models and training hyperparameters)
 │   └── model1_config.yaml              
 │
 ├── data                         # Directory to save the data
-│   ├── bronce                   # Original from source
+│   ├── bronze                   # Original from source
 │   ├── silver                   # Filter/transformed data.
 │   └── gold                     # The final, canonical data sets for modeling.
 │
@@ -90,17 +88,21 @@ Template_MLOps_E2E/
 ├── reports                      # Generated analysis as HTML, PDF, LaTeX, etc.
 │   └── figures                  # Generated graphics and figures to be used in reporting.
 │
-├── pyproject.toml               # The requirements file for reproducing the analysis environment.
 ├── src                          # Source code for use in this project.
-│   └── __init__.py              # Makes src a Python module.
-│
-└── test                         # Test code for Units Test in this project.
+│   └── template_mlops_e2e       # Makes src a Python module.
+│       ├── api                  # MVC (Controllers + Views)
+│       │   ├── controllers       # FastAPI routers (Controllers)
+│       │   └── views             # Pydantic schemas (Views)
+│       ├── data                 # ETL / preprocessing code
+│       ├── features             # Feature engineering
+│       ├── models               # ML logic (Models)
+│       └── pipelines            # Orchestration local/prefect
+│       
+└── tests                        # Test code for Units Test in this project.
     └── __init__.py              # Makes test a Python module.
 ```
 
 ## TODO
-* Add: Subdirectories for pattern MVC (Model, View, Controller)
-
 * Add: dockerfile
   
 * Add: more commands for makefile
