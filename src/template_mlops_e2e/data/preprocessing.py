@@ -5,7 +5,7 @@ import pandas as pd
 import pandera as pa
 from yaml import safe_load
 
-from src.template_mlops_e2e.data.validation_schema import iris_schema
+from src.template_mlops_e2e.models.validation_schema import iris_schema
 
 class Preprocessor:
     config_path: str | Path

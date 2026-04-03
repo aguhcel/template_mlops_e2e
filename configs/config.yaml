@@ -7,11 +7,10 @@ data:
   test_path: "data/gold/Iris_test.csv"
 
   drop_columns: ["Id"]
-  selected_features: ["SepalLengthCm", "SepalWidthCm", "PetalLengthCm", "PetalWidthCm"]
-
+  selected_features: ["SepalLengthCm", "SepalWidthCm", "PetalLengthCm", "PetalWidthCm", "Species"]
 
 model:
-  target: "species"
-  test_size: 0.2
+  target: "Species"
+  test_size: 0.3
   random_state: 42
   output_path: "models/iris_model.pkl"
