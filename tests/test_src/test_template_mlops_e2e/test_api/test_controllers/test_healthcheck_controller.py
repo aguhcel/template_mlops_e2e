@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
-from app.api.router.healthcheck.healthcheck_router import health_check_router
+from src.template_mlops_e2e.api.controllers.healthcheck_controller import health_check_router
 
 app = FastAPI()
 app.include_router(health_check_router)

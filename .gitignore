@@ -1,6 +1,9 @@
-*__pycache__
-*/__pycache__
+# Hygenics
+*__pycache__*
+*/__pycache__*
 */pytest_cache
+*.pytest_cache
+*.ruff_cache
 
 # Virtual env
 venv

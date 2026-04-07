@@ -7,6 +7,7 @@ endif
 
 VENV_DIR ?= .venv
 VENV_PY ?= 3.11
+DVC_REMOTE_PATH ?= data
 
 ifeq ($(PY),)
 $(error Not found python in PATH. Pass PY=python or run from a shell with python)
@@ -32,7 +33,7 @@ endif
 
 .PHONY: test
 test:
-	@pytest --cov=src --cov=app --cov-report=term-missing test app src
+	@pytest --cov=src --cov=app --cov-report=term-missing tests app src
 
 .PHONY: run-app
 run-app:  ## Run the FastAPI application.
@@ -55,3 +56,13 @@ run-ruff-format:  ## Run ruff format to delete unused imports.
 run-pre-commit:  ## Run pre-commit checks on all files.
 	@echo "Running pre-commit checks..."
 	pre-commit run --all-files
+
+.PHONY: init-dvc-local
+init-dvc-local:  ## Initialize DVC in the local environment.
+	dvc init
+	dvc remote add -d localremote $(DVC_REMOTE_PATH)
+
+.PHONY: dvc-track-example
+dvc-track-example:  ## Track example datasets with DVC (bronze/silver/gold).
+	dvc add data/bronze data/silver data/gold
+	git add data/bronze.dvc data/silver.dvc data/gold.dvc .gitignore

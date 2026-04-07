@@ -2,7 +2,7 @@ import logging
 
 from fastapi import APIRouter
 
-from app.api.router.healthcheck.model.response_model import HealthCheckResponse
+from src.template_mlops_e2e.api.views.healthcheck import HealthCheckResponse
 
 health_check_router = APIRouter()
 logger = logging.getLogger(__name__)
