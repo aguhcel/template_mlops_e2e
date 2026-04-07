@@ -54,6 +54,12 @@ uvicorn app.api.router.v0.main:app --reload --port <0-65536>
 make run-app
 ```
 
+### DVC (example data)
+```
+make init-dvc-local DVC_REMOTE_PATH=/absolute/path/to/dvc_remote_local
+make dvc-track-example
+```
+
 ### Directory structure
 ```
 Template_MLOps_E2E/

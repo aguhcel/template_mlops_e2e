@@ -61,3 +61,8 @@ run-pre-commit:  ## Run pre-commit checks on all files.
 init-dvc-local:  ## Initialize DVC in the local environment.
 	dvc init
 	dvc remote add -d localremote $(DVC_REMOTE_PATH)
+
+.PHONY: dvc-track-example
+dvc-track-example:  ## Track example datasets with DVC (bronze/silver/gold).
+	dvc add data/bronze data/silver data/gold
+	git add data/bronze.dvc data/silver.dvc data/gold.dvc .gitignore
